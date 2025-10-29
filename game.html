@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Number Guessing Game</title>
+</head>
+<body>
+  <h2>Number Guessing Game</h2>
+  <p>Open the console (Press F12) to play the game.</p>
+
+  <script>
+    let correctNumber = 3; 
+    let chances = 5;       
+
+    for (let i = 1; i <= chances; i++) {
+      let guess = parseInt(prompt(`Chance ${i}: Enter a number between 1 and 5`));
+
+      
+      if (guess < 1 || guess > 5 || isNaN(guess)) {
+        console.log("Invalid input. You lost this chance.");
+        continue; 
+      }
+
+      
+      if (guess === correctNumber) {
+        console.log("You guessed it right!");
+        break; 
+      } else {
+        console.log("Wrong guess. Try again.");
+      }
+
+      
+      if (i === chances) {
+        console.log("Game over.");
+      }
+    }
+  </script>
+</body>
+</html>

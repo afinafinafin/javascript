@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grocery Store Calculator</title>
+</head>
+<body>
+  <h2>Grocery Store Billing</h2>
+  <p>Open the console (Press F12) to view the results.</p>
+
+  <script>
+    let totalItems = 5; 
+
+    for (let i = 1; i <= totalItems; i++) {
+      let code = parseInt(prompt(`Purchase ${i}: Enter product code (1=Apple, 2=Banana, 3=Mango)`));
+      let quantity = parseInt(prompt(`Enter quantity:`));
+
+      let productName;
+      let pricePerItem;
+      let totalPrice;
+
+      switch (code) {
+        case 1:
+          productName = "Apple";
+          pricePerItem = 30;
+          break;
+
+        case 2:
+          productName = "Banana";
+          pricePerItem = 10;
+          break;
+
+        case 3:
+          productName = "Mango";
+          pricePerItem = 50;
+          break;
+
+        default:
+          console.log(`Invalid code entered. Skipping this purchase.`);
+          continue; 
+      }
+
+      totalPrice = pricePerItem * quantity;
+
+      console.log(`Product: ${productName}`);
+      console.log(`Quantity: ${quantity}`);
+      console.log(`Total: ₹${totalPrice}`);
+
+      if (totalPrice > 100) {
+        console.log("Status: High purchase\n");
+      } else {
+        console.log("Status: Normal purchase\n");
+      }
+    }
+  </script>
+</body>
+</html>

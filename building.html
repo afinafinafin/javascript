@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        // Define the User class
+class User {
+  constructor(name, age, email) {
+    this.name = name;
+    this.age = age;
+    this.email = email;
+  }
+
+  // Getter method for name
+  getName() {
+    return this.name;
+  }
+
+  // Getter method for age
+  getAge() {
+    return this.age;
+  }
+
+  // Setter method for email (with validation)
+  setEmail(newEmail) {
+    if (newEmail.includes('@')) {
+      this.email = newEmail;
+      console.log(`Email updated to: ${this.email}`);
+    } else {
+      console.log('Invalid email. Must contain "@" symbol.');
+    }
+  }
+
+  // Method to print all user details
+  printDetails() {
+    console.log(`Name: ${this.name}`);
+    console.log(`Age: ${this.age}`);
+    console.log(`Email: ${this.email}`);
+  }
+}
+
+// Create a User object
+const user = new User('Alice', 25, 'alice@example.com');
+
+// Try updating the email
+user.setEmail('alicegmail.com'); // Invalid email
+user.setEmail('alice.new@example.com'); // Valid email
+
+// Print user details
+user.printDetails();
+
+
+    </script>
+    

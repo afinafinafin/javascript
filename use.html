@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        // Step 1: JSON string from a contact form
+        const jsonString = `{
+            "name": "Alice",
+            "email": "alice@example.com",
+            "feedback": "Thank you for the help!"
+        }`;
+
+        // Step 2: Named arrow function to check feedback content
+        const analyzeFeedback = () => {
+            try {
+                // Convert JSON string into JS object
+                const feedbackObj = JSON.parse(jsonString);
+
+                // Check if feedback includes the word "thank" (case insensitive)
+                if (/thank/i.test(feedbackObj.feedback)) {
+                    console.log("Positive feedback received");
+                } else {
+                    console.log("Feedback noted");
+                }
+            } catch (error) {
+                // Error handling for invalid JSON
+                console.error("Error: Invalid JSON format.");
+            }
+        };
+
+        // Step 3: Run the function
+        analyzeFeedback();
+    </script>
+</body>
+</html>

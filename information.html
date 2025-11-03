@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        // Step 1: JSON string with user information
+const jsonString = `{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "message": "Hello! Just testing this."
+}`;
+
+// Step 2: Named arrow function to parse JSON and print message
+const printUserMessage = () => {
+  try {
+    // Convert JSON text into JavaScript object
+    const userObj = JSON.parse(jsonString);
+
+    // Print message if parsing is successful
+    console.log(`Message received from ${userObj.name}`);
+  } catch (error) {
+    // Error message in case parsing fails
+    console.error("Error: Invalid JSON data.");
+  }
+};
+
+// Step 3: Run the function
+printUserMessage();
+
+    </script>

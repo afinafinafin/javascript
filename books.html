@@ -2,7 +2,7 @@
 <html>
 <body>
     <script>
-        // Define the Book class
+       
 class Book {
   constructor(title, author, price) {
     this.title = title;
@@ -10,17 +10,17 @@ class Book {
     this.price = price;
   }
 
-  // Getter method for title
+  
   getTitle() {
     return this.title;
   }
 
-  // Getter method for author
+ 
   getAuthor() {
     return this.author;
   }
 
-  // Setter method for price (with validation)
+  
   setPrice(newPrice) {
     if (typeof newPrice === 'number' && newPrice > 0) {
       this.price = newPrice;
@@ -30,7 +30,7 @@ class Book {
     }
   }
 
-  // Method to display book details
+  
   printDetails() {
     console.log(`Title: ${this.title}`);
     console.log(`Author: ${this.author}`);
@@ -38,15 +38,15 @@ class Book {
   }
 }
 
-// Create a Book object
+
 const myBook = new Book('JavaScript Essentials', 'John Doe', 29.99);
 
-// Try updating the price
-myBook.setPrice(35.5);         // Valid price
-myBook.setPrice(-10);          // Invalid price
-myBook.setPrice('not number'); // Invalid price
 
-// Print final book details
+myBook.setPrice(35.5);         
+myBook.setPrice(-10);         
+myBook.setPrice('not number'); 
+
+
 myBook.printDetails();
 
     </script>

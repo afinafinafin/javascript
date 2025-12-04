@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frontend Exam</title>
+
+<!-- Bootstrap for modal -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+<style>
+    body { font-family: Arial, sans-serif; margin: 30px; }
+    .container { max-width: 500px; margin: auto; }
+    .result { font-size: 22px; font-weight: bold; margin-top: 10px; }
+    #winner { font-size: 24px; font-weight: bold; margin-top: 10px; color: red; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- === CALCULATOR === -->
+    <h2>Calculator</h2>
+    <input type="number" id="num1" placeholder="Enter first number" class="form-control">
+    <br>
+    <input type="number" id="num2" placeholder="Enter second number" class="form-control">
+    <br>
+    <select id="operator" class="form-control">
+        <option value="+">Addition (+)</option>
+        <option value="-">Subtraction (-)</option>
+        <option value="*">Multiplication (*)</option>
+        <option value="/">Division (/)</option>
+    </select>
+    <br>
+    <button onclick="calculate()" class="btn btn-primary"> = </button>
+    <div id="calcResult" class="result"></div>
+
+    <hr>
+
+    <!-- === LOTTERY DRAW === -->
+    <h2>Lottery Draw</h2>
+    <button onclick="drawWinner()" class="btn btn-success">Select Winner</button>
+    <div id="winner"></div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="winnerModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Lottery Winner</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body" id="popupWinner"></div>
+    </div>
+  </div>
+</div>
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // ---------- CALCULATOR FUNCTIONS ----------
+    function add(a, b) { return a + b; }
+    function subtract(a, b) { return a - b; }
+    function multiply(a, b) { return a * b; }
+    function divide(a, b) { return b !== 0 ? a / b : "Error: divide by 0"; }
+
+    function calculate() {
+        let a = parseFloat(document.getElementById("num1").value);
+        let b = parseFloat(document.getElementById("num2").value);
+        let op = document.getElementById("operator").value;
+        let result;
+
+        switch (op) {
+            case "+": result = add(a, b); break;
+            case "-": result = subtract(a, b); break;
+            case "*": result = multiply(a, b); break;
+            case "/": result = divide(a, b); break;
+        }
+        document.getElementById("calcResult").innerHTML = "Result: " + result;
+    }
+
+    // ---------- LOTTERY DRAW ----------
+    const tickets = [1599, 2684, 7754, 4491, 9033, 1200];
+
+    function drawWinner() {
+        let randomIndex = Math.floor(Math.random() * tickets.length);
+        let winner = tickets[randomIndex];
+
+        // 1. Console output
+        console.log("Lottery Winner: " + winner);
+
+        // 2. Red colour in the HTML page
+        document.getElementById("winner").innerHTML = "Winner: " + winner;
+
+        // 3. Modal popup
+        document.getElementById("popupWinner").innerHTML = "Winner: " + winner;
+        new bootstrap.Modal(document.getElementById("winnerModal")).show();
+    }
+</script>
+
+</body>
+</html>
